@@ -1,0 +1,91 @@
+<svg style="background:transparent" width="626" height="102" viewBox="0 0 626 102">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 53v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M576 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M138 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="50" y="52" width="88" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="94" y="67" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">function</text>
+</g>
+<path d="M138 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M148 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M158 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M212 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="158" y="52" width="54" height="22" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="185" y="67" font="bold 14px monospace" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-weight="600" font-style="italic" fill="black">name</text>
+</g>
+<path d="M212 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M222 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M232 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M269 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="232" y="52" width="37" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="250.5" y="67" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">()</text>
+</g>
+<path d="M269 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M279 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M289 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M355 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<text x="322" y="68" font="italic 12px monospace" text-anchor="middle" fill="black">optional</text>
+</g>
+<path d="M355 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M365 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M576 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M365 63a10 10 0 0 0 10 -10v-23a10 10 0 0 1 10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M385 20h171" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M556 20a10 10 0 0 1 10 10v23a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M365 63h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M385 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M556 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="385" y="44" width="171" height="38" rx="10" ry="10" stroke-width="1.5" stroke="gray" stroke-dasharray="10 5" fill="none"></rect>
+<g>
+<path d="M385 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M546 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M395 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M423.5 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="395" y="52" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="409.25" y="67" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">{</text>
+</g>
+<path d="M423.5 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M433.5 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M443.5 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M497.5 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="443.5" y="52" width="54" height="22" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="470.5" y="67" font="bold 14px monospace" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-weight="600" font-style="italic" fill="black">body</text>
+</g>
+<path d="M497.5 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M507.5 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M517.5 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M546 63h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="517.5" y="52" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="531.75" y="67" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">}</text>
+</g>
+</g>
+<g>
+<path d="M385 36h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M430 36h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<text x="407.5" y="41" font="italic 12px monospace" text-anchor="middle" fill="black">block</text>
+</g>
+</g>
+<path d="M556 63h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+</g>
+<path d="M576 63h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 586 63 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>

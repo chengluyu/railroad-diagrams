@@ -17,7 +17,7 @@ export class Comment extends FakeSVG {
   cls: string;
 
   constructor(text: string, { href, title, cls = '' }: CommentOptions = {}) {
-    super('g', { class: ['comment', cls].filter(Boolean).join(' ') });
+    super('g', Options.USE_CSS_CLASSES ? { class: ['comment', cls].filter(Boolean).join(' ') } : {});
     this.text = '' + text;
     this.href = href;
     this.title = title;

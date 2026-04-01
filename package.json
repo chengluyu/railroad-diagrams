@@ -2,7 +2,14 @@
   "name": "railroad-diagrams",
   "version": "1.1.0",
   "description": "A small JS+SVG library for drawing railroad syntax diagrams.",
-  "main": "railroad-diagrams.js",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node dist/test/run-tests.js",
+    "test:snapshots": "node dist/test/run-tests.js --generate-snapshots"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/tabatkins/railroad-diagrams.git"

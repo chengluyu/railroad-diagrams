@@ -17,7 +17,7 @@ export class NonTerminal extends FakeSVG {
   cls: string;
 
   constructor(text: string, { href, title, cls = '' }: NonTerminalOptions = {}) {
-    super('g', { class: ['non-terminal', cls].filter(Boolean).join(' ') });
+    super('g', Options.USE_CSS_CLASSES ? { class: ['non-terminal', cls].filter(Boolean).join(' ') } : {});
     this.text = '' + text;
     this.href = href;
     this.title = title;

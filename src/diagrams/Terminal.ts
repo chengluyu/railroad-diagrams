@@ -17,7 +17,7 @@ export class Terminal extends FakeSVG {
   cls?: string;
 
   constructor(text: string, { href, title, cls }: TerminalOptions = {}) {
-    super('g', { class: ['terminal', cls].filter(Boolean).join(' ') });
+    super('g', Options.USE_CSS_CLASSES ? { class: ['terminal', cls].filter(Boolean).join(' ') } : {});
     this.text = '' + text;
     this.href = href;
     this.title = title;

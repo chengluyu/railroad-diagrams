@@ -10,7 +10,11 @@ export class Diagram extends DiagramMultiContainer {
   formatted: boolean;
 
   constructor(...items: unknown[]) {
-    super('svg', items, { class: Options.DIAGRAM_CLASS, style: 'background:' + Style.SVG_BACKGROUND });
+    const attrs: Record<string, string> = { style: 'background:' + Style.SVG_BACKGROUND };
+    if (Options.USE_CSS_CLASSES) {
+      attrs.class = Options.DIAGRAM_CLASS;
+    }
+    super('svg', items, attrs);
     if (!(this.items[0] instanceof Start)) {
       this.items.unshift(new Start());
     }
@@ -98,6 +102,30 @@ export class Diagram extends DiagramMultiContainer {
     delete this.attrs.xmlns;
     delete this.attrs['xmlns:xlink'];
     return result;
+  }
+
+  /**
+   * Generate a portable SVG that can be opened in Illustrator, Inkscape, etc.
+   * All styles are inlined as SVG attributes - no CSS classes are used.
+   */
+  toPortableSVG(): string {
+    if (!this.formatted) {
+      this.format();
+    }
+    
+    // Get the SVG string
+    let svg = this.toString();
+    
+    // Remove class attributes that reference CSS (but keep transform etc.)
+    // This regex removes class="..." but we need to be careful not to break things
+    svg = svg.replace(/\sclass="[^"]*"/g, '');
+    
+    // Ensure xmlns is present for standalone SVG
+    if (!svg.includes('xmlns=')) {
+      svg = svg.replace('<svg', '<svg xmlns="http://www.w3.org/2000/svg"');
+    }
+    
+    return svg;
   }
 
   toTextDiagram(): TextDiagram {

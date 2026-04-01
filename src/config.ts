@@ -12,6 +12,8 @@ export interface OptionsConfig {
   CHAR_WIDTH: number;
   COMMENT_CHAR_WIDTH: number;
   ESCAPE_HTML: boolean;
+  /** If false, CSS class attributes will not be added to SVG elements (for portable SVG) */
+  USE_CSS_CLASSES: boolean;
 }
 
 export const Options: OptionsConfig = {
@@ -24,6 +26,7 @@ export const Options: OptionsConfig = {
   CHAR_WIDTH: 8.5, // width of each monospace character. play until you find the right value for your font
   COMMENT_CHAR_WIDTH: 7, // comments are in smaller text by default
   ESCAPE_HTML: true, // Should Diagram.toText() produce HTML-escaped text, or raw?
+  USE_CSS_CLASSES: true, // Add CSS class attributes to SVG elements
 };
 
 export const defaultCSS = ``; // CSS no longer needed; styles are inlined as SVG attributes
