@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc",
     "test": "node dist/test/run-tests.js",
-    "test:snapshots": "node dist/test/run-tests.js --generate-snapshots"
+    "test:snapshots": "node dist/test/run-tests.js --generate-snapshots",
+    "test:visual": "node dist/test/visual-css-classes-test.js"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visual CSS Classes Test</title>
+  <style>
+    body {
+      font-family: -apple-system, system-ui, sans-serif;
+      margin: 20px;
+      background: #f5f5f5;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .description {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      color: #666;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 15px;
+      border: 1px solid #ddd;
+      vertical-align: top;
+    }
+    th {
+      background: #333;
+      color: white;
+      text-align: left;
+    }
+    .test-name {
+      font-weight: bold;
+      width: 150px;
+      background: #f9f9f9;
+    }
+    .svg-cell {
+      text-align: center;
+    }
+    .label {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+    .match-indicator {
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+      border-radius: 4px;
+    }
+    .match-indicator.identical {
+      background: #d4edda;
+      color: #155724;
+    }
+    .summary {
+      background: white;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .summary h2 {
+      margin-top: 0;
+    }
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Inconsolata', monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Visual CSS Classes Test</h1>
+  <div class="description">
+    <p>This page compares SVG railroad diagrams generated with <code>USE_CSS_CLASSES = true</code> vs <code>USE_CSS_CLASSES = false</code>.</p>
+    <p>Both versions should render <strong>identically</strong> since all styling is applied via inline SVG attributes.</p>
+    <p>The only difference is the presence of <code>class</code> attributes in the SVG markup.</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Test Case</th>
+        <th>With CSS Classes</th>
+        <th>Without CSS Classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+    <tr>
+      <td class="test-name">Terminal</td>
+      <td class="svg-cell">
+        <div class="label">With CSS Classes</div>
+        <svg style="background:transparent" class="railroad-diagram" width="162.5" height="62" viewBox="0 0 162.5 62">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 21v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M50 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M112.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="50" y="20" width="62.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="81.25" y="35" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">hello</text>
+</g>
+<path d="M112.5 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 122.5 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+      <td class="svg-cell">
+        <div class="label">Without CSS Classes</div>
+        <svg style="background:transparent" width="162.5" height="62" viewBox="0 0 162.5 62">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 21v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M112.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="50" y="20" width="62.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="81.25" y="35" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">hello</text>
+</g>
+<path d="M112.5 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 122.5 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+    </tr>
+  
+
+    <tr>
+      <td class="test-name">NonTerminal</td>
+      <td class="svg-cell">
+        <div class="label">With CSS Classes</div>
+        <svg style="background:transparent" class="railroad-diagram" width="205" height="62" viewBox="0 0 205 62">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 21v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="non-terminal">
+<path d="M50 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M155 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="50" y="20" width="105" height="22" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="102.5" y="35" font="bold 14px monospace" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-weight="600" font-style="italic" fill="black">Identifier</text>
+</g>
+<path d="M155 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 165 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+      <td class="svg-cell">
+        <div class="label">Without CSS Classes</div>
+        <svg style="background:transparent" width="205" height="62" viewBox="0 0 205 62">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 21v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M155 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="50" y="20" width="105" height="22" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="102.5" y="35" font="bold 14px monospace" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-weight="600" font-style="italic" fill="black">Identifier</text>
+</g>
+<path d="M155 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 165 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+    </tr>
+  
+
+    <tr>
+      <td class="test-name">Comment</td>
+      <td class="svg-cell">
+        <div class="label">With CSS Classes</div>
+        <svg style="background:transparent" class="railroad-diagram" width="173" height="60" viewBox="0 0 173 60">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 20v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 30h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="comment">
+<path d="M50 30h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M123 30h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<text x="86.5" y="35" font="italic 12px monospace" text-anchor="middle" fill="black">a comment</text>
+</g>
+<path d="M123 30h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 133 30 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+      <td class="svg-cell">
+        <div class="label">Without CSS Classes</div>
+        <svg style="background:transparent" width="173" height="60" viewBox="0 0 173 60">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 20v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 30h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 30h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M123 30h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<text x="86.5" y="35" font="italic 12px monospace" text-anchor="middle" fill="black">a comment</text>
+</g>
+<path d="M123 30h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 133 30 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+    </tr>
+  
+
+    <tr>
+      <td class="test-name">Sequence</td>
+      <td class="svg-cell">
+        <div class="label">With CSS Classes</div>
+        <svg style="background:transparent" class="railroad-diagram" width="336" height="62" viewBox="0 0 336 62">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 21v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M286 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M50 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M112.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="50" y="20" width="62.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="81.25" y="35" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">first</text>
+</g>
+<path d="M112.5 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M122.5 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M132.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M203.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="132.5" y="20" width="71" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="168" y="35" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">second</text>
+</g>
+<path d="M203.5 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M213.5 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M223.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M286 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="223.5" y="20" width="62.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="254.75" y="35" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">third</text>
+</g>
+</g>
+<path d="M286 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 296 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+      <td class="svg-cell">
+        <div class="label">Without CSS Classes</div>
+        <svg style="background:transparent" width="336" height="62" viewBox="0 0 336 62">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 21v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M286 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M112.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="50" y="20" width="62.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="81.25" y="35" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">first</text>
+</g>
+<path d="M112.5 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M122.5 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M132.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M203.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="132.5" y="20" width="71" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="168" y="35" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">second</text>
+</g>
+<path d="M203.5 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M213.5 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M223.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M286 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="223.5" y="20" width="62.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="254.75" y="35" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">third</text>
+</g>
+</g>
+<path d="M286 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 296 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+    </tr>
+  
+
+    <tr>
+      <td class="test-name">Choice</td>
+      <td class="svg-cell">
+        <div class="label">With CSS Classes</div>
+        <svg style="background:transparent" class="railroad-diagram" width="199.5" height="122" viewBox="0 0 199.5 122">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 21v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<g>
+<path d="M40 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M159.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M40 31h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M60 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M139.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="60" y="20" width="79.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="99.75" y="35" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">option1</text>
+</g>
+<path d="M139.5 31h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M40 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M60 61h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M139.5 61h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="60" y="50" width="79.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="99.75" y="65" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">option2</text>
+</g>
+<path d="M139.5 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M40 31a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M60 91h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M139.5 91h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="60" y="80" width="79.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="99.75" y="95" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">option3</text>
+</g>
+<path d="M139.5 91a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 159.5 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+      <td class="svg-cell">
+        <div class="label">Without CSS Classes</div>
+        <svg style="background:transparent" width="199.5" height="122" viewBox="0 0 199.5 122">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 21v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<g>
+<path d="M40 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M159.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M40 31h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M60 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M139.5 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="60" y="20" width="79.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="99.75" y="35" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">option1</text>
+</g>
+<path d="M139.5 31h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M40 31a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M60 61h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M139.5 61h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="60" y="50" width="79.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="99.75" y="65" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">option2</text>
+</g>
+<path d="M139.5 61a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M40 31a10 10 0 0 1 10 10v40a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M60 91h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M139.5 91h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="60" y="80" width="79.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="99.75" y="95" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">option3</text>
+</g>
+<path d="M139.5 91a10 10 0 0 0 10 -10v-40a10 10 0 0 1 10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 159.5 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+    </tr>
+  
+
+    <tr>
+      <td class="test-name">Optional</td>
+      <td class="svg-cell">
+        <div class="label">With CSS Classes</div>
+        <svg style="background:transparent" class="railroad-diagram" width="208" height="71" viewBox="0 0 208 71">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 30v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<g>
+<path d="M40 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M168 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M40 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M60 20h88" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M148 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M40 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M60 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M148 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="60" y="29" width="88" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="104" y="44" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">optional</text>
+</g>
+<path d="M148 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 168 40 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+      <td class="svg-cell">
+        <div class="label">Without CSS Classes</div>
+        <svg style="background:transparent" width="208" height="71" viewBox="0 0 208 71">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 30v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<g>
+<path d="M40 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M168 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M40 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M60 20h88" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M148 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M40 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M60 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M148 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="60" y="29" width="88" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="104" y="44" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">optional</text>
+</g>
+<path d="M148 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 168 40 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+    </tr>
+  
+
+    <tr>
+      <td class="test-name">OneOrMore</td>
+      <td class="svg-cell">
+        <div class="label">With CSS Classes</div>
+        <svg style="background:transparent" class="railroad-diagram" width="174" height="92" viewBox="0 0 174 92">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 21v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M124 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M50 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M60 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M114 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="60" y="20" width="54" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="87" y="35" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">item</text>
+</g>
+<path d="M114 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M60 31a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M60 61h12.75" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M101.25 61h12.75" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="72.75" y="50" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="87" y="65" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">,</text>
+</g>
+<path d="M114 61a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M124 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 134 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+      <td class="svg-cell">
+        <div class="label">Without CSS Classes</div>
+        <svg style="background:transparent" width="174" height="92" viewBox="0 0 174 92">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 21v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M124 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M50 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M60 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M114 31h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="60" y="20" width="54" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="87" y="35" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">item</text>
+</g>
+<path d="M114 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M60 31a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M60 61h12.75" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M101.25 61h12.75" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="72.75" y="50" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="87" y="65" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">,</text>
+</g>
+<path d="M114 61a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M124 31h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 134 31 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+    </tr>
+  
+
+    <tr>
+      <td class="test-name">Group</td>
+      <td class="svg-cell">
+        <div class="label">With CSS Classes</div>
+        <svg style="background:transparent" class="railroad-diagram" width="271" height="94" viewBox="0 0 271 94">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 45v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M221 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="50" y="36" width="171" height="38" rx="10" ry="10" stroke-width="1.5" stroke="gray" stroke-dasharray="10 5" fill="none"></rect>
+<g>
+<path d="M50 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M211 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M60 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M88.5 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="60" y="44" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="74.25" y="59" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">{</text>
+</g>
+<path d="M88.5 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M98.5 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="non-terminal">
+<path d="M108.5 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M162.5 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="108.5" y="44" width="54" height="22" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="135.5" y="59" font="bold 14px monospace" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-weight="600" font-style="italic" fill="black">body</text>
+</g>
+<path d="M162.5 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M172.5 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M182.5 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M211 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="182.5" y="44" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="196.75" y="59" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">}</text>
+</g>
+</g>
+<g class="comment">
+<path d="M50 28h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M95 28h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<text x="72.5" y="33" font="italic 12px monospace" text-anchor="middle" fill="black">block</text>
+</g>
+</g>
+<path d="M221 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 231 55 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+      <td class="svg-cell">
+        <div class="label">Without CSS Classes</div>
+        <svg style="background:transparent" width="271" height="94" viewBox="0 0 271 94">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 45v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M221 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="50" y="36" width="171" height="38" rx="10" ry="10" stroke-width="1.5" stroke="gray" stroke-dasharray="10 5" fill="none"></rect>
+<g>
+<path d="M50 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M211 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M60 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M88.5 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="60" y="44" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="74.25" y="59" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">{</text>
+</g>
+<path d="M88.5 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M98.5 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M108.5 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M162.5 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="108.5" y="44" width="54" height="22" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="135.5" y="59" font="bold 14px monospace" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-weight="600" font-style="italic" fill="black">body</text>
+</g>
+<path d="M162.5 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M172.5 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M182.5 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M211 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="182.5" y="44" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="196.75" y="59" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">}</text>
+</g>
+</g>
+<g>
+<path d="M50 28h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M95 28h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<text x="72.5" y="33" font="italic 12px monospace" text-anchor="middle" fill="black">block</text>
+</g>
+</g>
+<path d="M221 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 231 55 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+    </tr>
+  
+
+    <tr>
+      <td class="test-name">Complex</td>
+      <td class="svg-cell">
+        <div class="label">With CSS Classes</div>
+        <svg style="background:transparent" class="railroad-diagram" width="585.5" height="101" viewBox="0 0 585.5 101">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 30v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M535.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M50 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M138 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="50" y="29" width="88" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="94" y="44" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">function</text>
+</g>
+<path d="M138 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M148 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="non-terminal">
+<path d="M158 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M212 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="158" y="29" width="54" height="22" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="185" y="44" font="bold 14px monospace" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-weight="600" font-style="italic" fill="black">name</text>
+</g>
+<path d="M212 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M222 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M232 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M260.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="232" y="29" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="246.25" y="44" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">(</text>
+</g>
+<path d="M260.5 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M270.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M376 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M270.5 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M290.5 20h65.5" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M356 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M270.5 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M290.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M356 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M290.5 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="non-terminal">
+<path d="M300.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M346 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="300.5" y="29" width="45.5" height="22" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="323.25" y="44" font="bold 14px monospace" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-weight="600" font-style="italic" fill="black">arg</text>
+</g>
+<path d="M346 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M300.5 40a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M300.5 70h8.5" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M337.5 70h8.5" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="309" y="59" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="323.25" y="74" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">,</text>
+</g>
+<path d="M346 70a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M356 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M376 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M386 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M414.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="386" y="29" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="400.25" y="44" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">)</text>
+</g>
+<path d="M414.5 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M424.5 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="comment">
+<path d="M434.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M535.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<text x="485" y="45" font="italic 12px monospace" text-anchor="middle" fill="black">function call</text>
+</g>
+</g>
+<path d="M535.5 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 545.5 40 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+      <td class="svg-cell">
+        <div class="label">Without CSS Classes</div>
+        <svg style="background:transparent" width="585.5" height="101" viewBox="0 0 585.5 101">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 30v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M535.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M138 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="50" y="29" width="88" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="94" y="44" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">function</text>
+</g>
+<path d="M138 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M148 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M158 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M212 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="158" y="29" width="54" height="22" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="185" y="44" font="bold 14px monospace" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-weight="600" font-style="italic" fill="black">name</text>
+</g>
+<path d="M212 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M222 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M232 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M260.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="232" y="29" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="246.25" y="44" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">(</text>
+</g>
+<path d="M260.5 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M270.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M376 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M270.5 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M290.5 20h65.5" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M356 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M270.5 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M290.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M356 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M290.5 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M300.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M346 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="300.5" y="29" width="45.5" height="22" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="323.25" y="44" font="bold 14px monospace" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-weight="600" font-style="italic" fill="black">arg</text>
+</g>
+<path d="M346 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M300.5 40a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M300.5 70h8.5" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M337.5 70h8.5" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="309" y="59" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="323.25" y="74" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">,</text>
+</g>
+<path d="M346 70a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M356 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M376 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M386 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M414.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="386" y="29" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="400.25" y="44" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">)</text>
+</g>
+<path d="M414.5 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M424.5 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M434.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M535.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<text x="485" y="45" font="italic 12px monospace" text-anchor="middle" fill="black">function call</text>
+</g>
+</g>
+<path d="M535.5 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 545.5 40 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
+
+      </td>
+    </tr>
+  
+    </tbody>
+  </table>
+
+  <div class="summary">
+    <h2>Expected Results</h2>
+    <ul>
+      <li>All diagrams in both columns should look <strong>identical</strong></li>
+      <li>The left column has <code>class="terminal"</code>, <code>class="non-terminal"</code>, etc.</li>
+      <li>The right column has no class attributes (better for Illustrator/Inkscape)</li>
+      <li>Inline styles (stroke, fill, font) are identical in both</li>
+    </ul>
+    
+    <h2>How to Use</h2>
+    <p>For portable SVGs that work in graphic design applications:</p>
+    <pre><code>import { Diagram, Terminal, Options } from "./railroad.js";
+
+// Disable CSS classes for portable output
+Options.USE_CSS_CLASSES = false;
+
+const diagram = new Diagram(new Terminal("hello"));
+diagram.format();
+
+// Save the SVG - it has no class dependencies
+const svg = diagram.toString();</code></pre>
+  </div>
+
+  <div class="match-indicator identical">
+    ✓ Visual rendering should be identical in both columns
+  </div>
+</body>
+</html>
