@@ -134,9 +134,9 @@ export class FakeSVG {
 	}
 	toText() {
 		var outputTD = this.toTextDiagram();
-		var output = outputTD.lines.join("\n") + "\n";
+		var output = outputTD+"";
 		if(Options.ESCAPE_HTML) {
-			output = output.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;");
+			output = output.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;").replace("'", "&apos;");
 		}
 		return output;
 	}
@@ -864,12 +864,11 @@ export class AlternatingSequence extends DiagramMultiContainer {
 		var firstTD = this.items[0].toTextDiagram();
 		var secondTD = this.items[1].toTextDiagram();
 		var maxWidth = TextDiagram._maxWidth(firstTD, secondTD);
-		var [leftWidth, rightWidth] = TextDiagram._gaps(maxWidth, 0);
 		var leftLines = [];
 		var rightLines = [];
 		var separator = [];
-		var [leftSize, rightSize] = TextDiagram._gaps(firstTD.width, 0);
-		var diagramTD = firstTD.expand(leftWidth - leftSize, rightWidth - rightSize, 0, 0);
+		var [leftGap, rightGap] = TextDiagram._gaps(maxWidth, firstTD.width);
+		var diagramTD = firstTD.expand(leftGap, rightGap, 0, 0);
 		for(var i = 0; i < diagramTD.entry; i++) {
 			leftLines.push("  ");
 		}
@@ -887,14 +886,15 @@ export class AlternatingSequence extends DiagramMultiContainer {
 		}
 		rightLines.push(line + corner_bot_right);
 
-		separator.push((line.repeat(leftWidth - 1)) + corner_top_right + " " + corner_top_left + (line.repeat(rightWidth - 2)));
-		separator.push((" ".repeat(leftWidth - 1)) + " " + cross_diag + " " + (" ".repeat(rightWidth - 2)));
-		separator.push((line.repeat(leftWidth - 1)) + corner_bot_right + " " + corner_bot_left + (line.repeat(rightWidth - 2)));
+		var [leftSepWidth, rightSepWidth] = TextDiagram._gaps(maxWidth, 3, "center")
+		separator.push((line.repeat(leftSepWidth)) + corner_top_right + " " + corner_top_left + (line.repeat(rightSepWidth)));
+		separator.push((" ".repeat(leftSepWidth)) + " " + cross_diag + " " + (" ".repeat(rightSepWidth)));
+		separator.push((line.repeat(leftSepWidth)) + corner_bot_right + " " + corner_bot_left + (line.repeat(rightSepWidth)));
 		leftLines.push("  ");
 		rightLines.push("  ");
 
-		[leftSize, rightSize] = TextDiagram._gaps(secondTD.width, 0);
-		secondTD = secondTD.expand(leftWidth - leftSize, rightWidth - rightSize, 0, 0);
+		[leftGap, rightGap] = TextDiagram._gaps(maxWidth, secondTD.width);
+		secondTD = secondTD.expand(leftGap, rightGap, 0, 0);
 		diagramTD = diagramTD.appendBelow(secondTD, separator, true, true);
 		leftLines.push(corner_top_left + line);
 		for(i = 0; i < secondTD.entry; i++) {
@@ -907,7 +907,7 @@ export class AlternatingSequence extends DiagramMultiContainer {
 		}
 		rightLines.push(line + corner_bot_right);
 
-		diagramTD = diagramTD.alter(firstTD.height + Math.trunc(separator.length / 2), firstTD.height + Math.trunc(separator.length / 2));
+		diagramTD = diagramTD.alter({entry:firstTD.height + Math.trunc(separator.length / 2), exit:firstTD.height + Math.trunc(separator.length / 2)});
 		var leftTD = new TextDiagram(firstTD.height + Math.trunc(separator.length / 2), firstTD.height + Math.trunc(separator.length / 2), leftLines);
 		var rightTD = new TextDiagram(firstTD.height + Math.trunc(separator.length / 2), firstTD.height + Math.trunc(separator.length / 2), rightLines);
 		diagramTD = leftTD.appendRight(diagramTD, "").appendRight(rightTD, "");
@@ -1320,7 +1320,7 @@ export class HorizontalChoice extends DiagramMultiContainer {
 				}
 				lines.push(roundcorner_bot_left + line);
 				for(i = 0; i < baselineToSUIL; i++) {
-					lines.push(line_vertical + " ");
+					lines.push("  ");
 				}
 				lines.push(line + line);
 				var entryTD = new TextDiagram(diagramTD.exit, diagramTD.exit, lines);
@@ -1577,9 +1577,6 @@ export class OneOrMore extends FakeSVG {
 		// Format the item and then format the repeat append it to tbe bottom, after a spacer.
 		var itemTD = this.item.toTextDiagram();
 		var repeatTD = this.rep.toTextDiagram();
-		var fIRWidth = TextDiagram._maxWidth(itemTD, repeatTD);
-		repeatTD = repeatTD.expand(0, fIRWidth - repeatTD.width, 0, 0);
-		itemTD = itemTD.expand(0, fIRWidth - itemTD.width, 0, 0);
 		var itemAndRepeatTD = itemTD.appendBelow(repeatTD, []);
 		// Build the left side of the repeat line and append the combined item and repeat to its right.
 		var leftLines = [];
@@ -1981,11 +1978,12 @@ export class TextDiagram {
 			}
 		}
 	}
-	alter(entry=null, exit=null, lines=null) {
+	toString() {
+		return this.lines.join("\n")+"\n";
+	}
+	alter({entry, exit, lines}) {
 		/*
 		Create and return a new TextDiagram based on this instance, with the specified changes.
-
-		Note: This is used sparingly, and may be a bad idea.
 		*/
 		var newEntry = entry || this.entry;
 		var newExit = exit || this.exit;
@@ -1999,18 +1997,11 @@ export class TextDiagram {
 		TextDiagram's entry and or exit indices to those of the appended item.
 		*/
 		var newWidth = Math.max(this.width, item.width);
-		var newLines = [];
-		var centeredLines = this.center(newWidth, " ").lines
-		for(const line of centeredLines) {
-			newLines.push(line);
-		}
-		for(const line of linesBetween) {
-			newLines.push(TextDiagram._padR(line, newWidth, " "));
-		}
-		centeredLines = item.center(newWidth, " ").lines
-		for(const line of centeredLines) {
-			newLines.push(line);
-		}
+		var item1 = this.expandWidth(newWidth);
+		var item2 = item.expandWidth(newWidth);
+		var linesBetween = linesBetween.map(x=>TextDiagram._padR(x, newWidth, " "));
+		var newLines = [...item1.lines, ...linesBetween, ...item2.lines];
+
 		var newEntry = moveEntry ? this.height + linesBetween.length + item.entry : this.entry;
 		var newExit = moveExit ? this.height + linesBetween.length + item.exit : this.exit;
 		return new TextDiagram(newEntry, newExit, newLines);
@@ -2038,28 +2029,65 @@ export class TextDiagram {
 		var newExit = item.exit + rightTopAdd;
 		return new TextDiagram(newEntry, newExit, newLines);
 	}
+	expandWidth(newWidth) {
+		if(newWidth < this.width) {
+			throw new Error(`Cannot expandWidth() to a smaller width (changing ${this.width} to ${newWidth})`);
+		}
+		if(newWidth == this.width) {
+			return this.copy();
+		}
+		var [leftGap, rightGap] = TextDiagram._gaps(newWidth, this.width);
+		var line = TextDiagram.parts["line"];
+		var lefts = [];
+		var rights = [];
+		for(var i = 0; i < this.height; i++) {
+			var leftChar = (this.entry == i) ? line : " ";
+			var rightChar = (this.exit == i) ? line : " ";
+			lefts.push(leftChar.repeat(leftGap));
+			rights.push(rightChar.repeat(rightGap));
+		}
+		return this.alter({lines:TextDiagram._encloseLines(this.lines, lefts, rights)});
+
+	}
+	expandHeight(newHeight) {
+		if(newHeight < this.height) {
+			throw new Error(`Cannot expandHeight() to a smaller width (changing ${this.width} to ${newWidth})`);
+		}
+		if(newHeight == this.height) {
+			return this.copy();
+		}
+		var [topGap, bottomGap] = TextDiagram._gaps(this.height, newHeight, "center");
+		var newLines = [];
+		for(var i = 0; i < topGap; i++) {
+			newLines.push(" ".repeat(this.width));
+		}
+		newLines.extend(this.lines);
+		for(var i = 0; i < bottomGap; i++) {
+			newLines.push(" ".repeat(this.width));
+		}
+		return new TextDiagram(this.entry+topGap, this.exit+topGap, newLines);
+
+	}
 	center(width, pad) {
 		/*
-		Create and return a new TextDiagram by centering the data of this instance within a new, equal or larger widtth.
+		Create and return a new TextDiagram by centering the data of this instance within a new, equal or larger width.
 		*/
 		if(width < this.width) {
 			throw new Error("Cannot center into smaller width")
 		}
 		if(width === this.width) {
 			return this.copy();
-		} else {
-			var totalPadding = width - this.width;
-			var leftWidth = Math.trunc(totalPadding / 2);
-			var left = [];
-			for (var i = 0; i < this.height; i++) {
-				left.push(pad.repeat(leftWidth));
-			}
-			var right = [];
-			for (i = 0; i < this.height; i++) {
-				right.push(pad.repeat(totalPadding - leftWidth));
-			}
-			return new TextDiagram(this.entry, this.exit, TextDiagram._encloseLines(this.lines, left, right));
 		}
+		var [leftGap, rightGap] = TextDiagram._gaps(this.width, width);
+		var lefts = [];
+		var rights = [];
+		for (var i = 0; i < this.height; i++) {
+			lefts.push(pad.repeat(leftGap));
+			rights.push(pad.repeat(rightGap));
+		}
+		for (i = 0; i < this.height; i++) {
+		}
+		return this.alter({lines:TextDiagram._encloseLines(this.lines, lefts, rights)});
 	}
 	copy() {
 		/*
@@ -2076,22 +2104,21 @@ export class TextDiagram {
 		}
 		if(left + right + top + bottom === 0) {
 			return this.copy();
-		} else {
-			var line = TextDiagram.parts["line"];
-			var newLines = [];
-			for(var i = 0; i < top; i++) {
-				newLines.push(" ".repeat(this.width + left + right));
-			}
-			for(i = 0; i < this.height; i++){
-				var leftExpansion = i === this.entry ? line : " ";
-				var rightExpansion = i === this.exit ? line : " ";
-				newLines.push(leftExpansion.repeat(left) + this.lines[i] + rightExpansion.repeat(right));
-			}
-			for(i = 0; i < bottom; i++) {
-				newLines.push(" ".repeat(this.width + left + right));
-			}
-			return new TextDiagram(this.entry + top, this.exit + top, newLines);
 		}
+		var line = TextDiagram.parts["line"];
+		var newLines = [];
+		for(var i = 0; i < top; i++) {
+			newLines.push(" ".repeat(this.width + left + right));
+		}
+		for(i = 0; i < this.height; i++){
+			var leftExpansion = i === this.entry ? line : " ";
+			var rightExpansion = i === this.exit ? line : " ";
+			newLines.push(leftExpansion.repeat(left) + this.lines[i] + rightExpansion.repeat(right));
+		}
+		for(i = 0; i < bottom; i++) {
+			newLines.push(" ".repeat(this.width + left + right));
+		}
+		return new TextDiagram(this.entry + top, this.exit + top, newLines);
 	}
 	static rect(item, dashed=false) {
 		/*
@@ -2169,14 +2196,18 @@ export class TextDiagram {
 		}
 		return newLines;
 	}
-	static _gaps(outerWidth, innerWidth) {
+	static _gaps(outerWidth, innerWidth, alignment) {
 		/*
 		Return the left and right pad spacing based on the alignment configuration setting.
 		*/
 		var diff = outerWidth - innerWidth;
-		if(Options.INTERNAL_ALIGNMENT === "left") {
+		if(diff < 0) {
+			console.error(`Larger innerWidth (${innerWidth}) than outerWidth (${outerWidth})`)
+		}
+		alignment = unnull(alignment, Options.INTERNAL_ALIGNMENT);
+		if(alignment === "left") {
 			return [0, diff];
-		} else if(Options.INTERNAL_ALIGNMENT === "right") {
+		} else if(alignment === "right") {
 			return [diff, 0];
 		} else {
 			var left = Math.trunc(diff / 2);
