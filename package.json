@@ -8,8 +8,11 @@
   "scripts": {
     "build": "tsc",
     "test": "node dist/test/run-tests.js",
+    "test:all": "npm run test && npm run test:options && npm run test:edge",
     "test:snapshots": "node dist/test/run-tests.js --generate-snapshots",
-    "test:visual": "node dist/test/visual-css-classes-test.js"
+    "test:visual": "node dist/test/visual-css-classes-test.js",
+    "test:options": "node dist/test/options-combination-test.js",
+    "test:edge": "node dist/test/edge-case-test.js"
   },
   "repository": {
     "type": "git",
