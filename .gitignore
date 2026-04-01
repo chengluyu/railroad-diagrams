@@ -3,8 +3,27 @@ secrets.json
 .idea
 *.iml
 *.pyc
+
+# Node.js
+node_modules/
+package-lock.json
+
+# Build outputs
 /dist
 /build
-test.htmlnode_modules/
-package-lock.json
 dist/
+
+# Test artifacts
+test.html
+.playwright-cli/
+test-output/*.png
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+*.swp
+*.swo
+*~
