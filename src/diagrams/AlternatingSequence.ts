@@ -120,12 +120,11 @@ export class AlternatingSequence extends DiagramMultiContainer {
     const firstTD = this.items[0].toTextDiagram();
     const secondTD = this.items[1].toTextDiagram();
     const maxWidth = TextDiagram._maxWidth(firstTD, secondTD);
-    const [leftWidth, rightWidth] = TextDiagram._gaps(maxWidth, 0);
     const leftLines: string[] = [];
     const rightLines: string[] = [];
     const separator: string[] = [];
-    const [leftSize, rightSize] = TextDiagram._gaps(firstTD.width, 0);
-    let diagramTD = firstTD.expand(leftWidth - leftSize, rightWidth - rightSize, 0, 0);
+    const [leftGap, rightGap] = TextDiagram._gaps(maxWidth, firstTD.width);
+    let diagramTD = firstTD.expand(leftGap, rightGap, 0, 0);
 
     for (let i = 0; i < diagramTD.entry; i++) {
       leftLines.push('  ');
@@ -144,14 +143,15 @@ export class AlternatingSequence extends DiagramMultiContainer {
     }
     rightLines.push(line + corner_bot_right);
 
-    separator.push(line.repeat(leftWidth - 1) + corner_top_right + ' ' + corner_top_left + line.repeat(rightWidth - 2));
-    separator.push(' '.repeat(leftWidth - 1) + ' ' + cross_diag + ' ' + ' '.repeat(rightWidth - 2));
-    separator.push(line.repeat(leftWidth - 1) + corner_bot_right + ' ' + corner_bot_left + line.repeat(rightWidth - 2));
+    const [leftSepWidth, rightSepWidth] = TextDiagram._gaps(maxWidth, 3, 'center');
+    separator.push(line.repeat(leftSepWidth) + corner_top_right + ' ' + corner_top_left + line.repeat(rightSepWidth));
+    separator.push(' '.repeat(leftSepWidth) + ' ' + cross_diag + ' ' + ' '.repeat(rightSepWidth));
+    separator.push(line.repeat(leftSepWidth) + corner_bot_right + ' ' + corner_bot_left + line.repeat(rightSepWidth));
     leftLines.push('  ');
     rightLines.push('  ');
 
-    const [secondLeftSize, secondRightSize] = TextDiagram._gaps(secondTD.width, 0);
-    const expandedSecondTD = secondTD.expand(leftWidth - secondLeftSize, rightWidth - secondRightSize, 0, 0);
+    const [secondLeftGap, secondRightGap] = TextDiagram._gaps(maxWidth, secondTD.width);
+    const expandedSecondTD = secondTD.expand(secondLeftGap, secondRightGap, 0, 0);
     diagramTD = diagramTD.appendBelow(expandedSecondTD, separator, true, true);
     leftLines.push(corner_top_left + line);
     for (let i = 0; i < expandedSecondTD.entry; i++) {

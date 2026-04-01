@@ -31,6 +31,13 @@ export class TextDiagram {
   }
 
   /**
+   * Return the lines joined with newlines.
+   */
+  toString(): string {
+    return this.lines.join('\n') + '\n';
+  }
+
+  /**
    * Create and return a new TextDiagram based on this instance, with the specified changes.
    */
   alter(entry: number | null = null, exit: number | null = null, lines: string[] | null = null): TextDiagram {
@@ -232,11 +239,12 @@ export class TextDiagram {
   /**
    * Return the left and right pad spacing based on the alignment configuration setting.
    */
-  static _gaps(outerWidth: number, innerWidth: number): [number, number] {
+  static _gaps(outerWidth: number, innerWidth: number, alignment?: 'left' | 'right' | 'center'): [number, number] {
     const diff = outerWidth - innerWidth;
-    if (Options.INTERNAL_ALIGNMENT === 'left') {
+    const align = alignment ?? Options.INTERNAL_ALIGNMENT;
+    if (align === 'left') {
       return [0, diff];
-    } else if (Options.INTERNAL_ALIGNMENT === 'right') {
+    } else if (align === 'right') {
       return [diff, 0];
     } else {
       const left = Math.trunc(diff / 2);
