@@ -179,7 +179,7 @@ export class HorizontalChoice extends DiagramMultiContainer {
         }
         lines.push(roundcorner_bot_left + line);
         for (let i = 0; i < baselineToSUIL; i++) {
-          lines.push(line_vertical + ' ');
+          lines.push('  ');
         }
         lines.push(line + line);
         const entryTD = new TextDiagram(diagramTD.exit, diagramTD.exit, lines);
