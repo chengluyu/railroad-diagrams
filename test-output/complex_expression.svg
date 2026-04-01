@@ -1,0 +1,69 @@
+<svg class="railroad-diagram" style="background:transparent" width="448.5" height="109" viewBox="0 0 448.5 109">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 30v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="non-terminal">
+<path d="M50 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M155 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="50" y="29" width="105" height="22" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="102.5" y="44" font="bold 14px monospace" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-weight="600" font-style="italic" fill="black">Expression</text>
+</g>
+<path d="M155 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M165 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M408.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M165 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M185 20h203.5" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M388.5 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M165 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M185 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M388.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M185 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M195 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M378.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M195 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M263.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M195 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M215 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M243.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="215" y="29" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="229.25" y="44" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">+</text>
+</g>
+<path d="M243.5 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M195 40a10 10 0 0 1 10 10v10a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M215 70h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M243.5 70h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="215" y="59" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="229.25" y="74" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">-</text>
+</g>
+<path d="M243.5 70a10 10 0 0 0 10 -10v-10a10 10 0 0 1 10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M263.5 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="non-terminal">
+<path d="M273.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M378.5 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="273.5" y="29" width="105" height="22" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="326" y="44" font="bold 14px monospace" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-weight="600" font-style="italic" fill="black">Expression</text>
+</g>
+</g>
+<path d="M378.5 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M195 40a10 10 0 0 0 -10 10v29a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M195 89h183.5" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M378.5 89a10 10 0 0 0 10 -10v-29a10 10 0 0 0 -10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M388.5 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 408.5 40 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>

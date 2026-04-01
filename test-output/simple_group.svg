@@ -1,0 +1,26 @@
+<svg class="railroad-diagram" style="background:transparent" width="199.5" height="94" viewBox="0 0 199.5 94">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 45v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M40 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M50 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M149.5 55h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="50" y="36" width="99.5" height="38" rx="10" ry="10" stroke-width="1.5" stroke="gray" stroke-dasharray="10 5" fill="none"></rect>
+<g class="terminal">
+<path d="M50 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M139.5 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="60" y="44" width="79.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="99.75" y="59" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">grouped</text>
+</g>
+<g class="comment">
+<path d="M50 28h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M95 28h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<text x="72.5" y="33" font="italic 12px monospace" text-anchor="middle" fill="black">label</text>
+</g>
+</g>
+<path d="M149.5 55h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 159.5 55 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>

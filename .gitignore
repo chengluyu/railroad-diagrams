@@ -5,4 +5,6 @@ secrets.json
 *.pyc
 /dist
 /build
-test.html
+test.htmlnode_modules/
+package-lock.json
+dist/

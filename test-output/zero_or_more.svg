@@ -1,0 +1,39 @@
+<svg class="railroad-diagram" style="background:transparent" width="194" height="101" viewBox="0 0 194 101">
+<g transform="translate(.5 .5)">
+<g>
+<path d="M20 30v20m10 -20v20m-10 -10h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<g>
+<path d="M40 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M154 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M40 40a10 10 0 0 0 10 -10v0a10 10 0 0 1 10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M60 20h74" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M134 20a10 10 0 0 1 10 10v0a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M40 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g>
+<path d="M60 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M134 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M60 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M70 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M124 40h0" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="70" y="29" width="54" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="97" y="44" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">item</text>
+</g>
+<path d="M124 40h10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M70 40a10 10 0 0 0 -10 10v10a10 10 0 0 0 10 10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<g class="terminal">
+<path d="M70 70h12.75" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<path d="M111.25 70h12.75" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+<rect x="82.75" y="59" width="28.5" height="22" rx="10" ry="10" stroke-width="1.5" stroke="black" fill="#ffffff"></rect>
+<text x="97" y="74" font="bold 14px monospace" text-anchor="middle" font-family="Inconsolata, monospace" fill="black">,</text>
+</g>
+<path d="M124 70a10 10 0 0 0 10 -10v-10a10 10 0 0 0 -10 -10" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path d="M134 40h20" stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none"></path>
+</g>
+<path stroke-width="2" stroke="rgba(1, 1, 1, 0.8)" fill="none" d="M 154 40 h 20 m -10 -10 v 20 m 10 -20 v 20"></path>
+</g>
+</svg>
