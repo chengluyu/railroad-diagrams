@@ -87,9 +87,9 @@ export class FakeSVG {
 
   toText(): string {
     const outputTD = this.toTextDiagram();
-    let output = outputTD.lines.join('\n') + '\n';
+    let output = outputTD + '';
     if (Options.ESCAPE_HTML) {
-      output = output.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      output = output.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
     }
     return output;
   }
