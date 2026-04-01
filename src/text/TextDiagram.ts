@@ -40,7 +40,7 @@ export class TextDiagram {
   /**
    * Create and return a new TextDiagram based on this instance, with the specified changes.
    */
-  alter(entry: number | null = null, exit: number | null = null, lines: string[] | null = null): TextDiagram {
+  alter({entry, exit, lines}: {entry?: number, exit?: number, lines?: string[]}): TextDiagram {
     const newEntry = entry ?? this.entry;
     const newExit = exit ?? this.exit;
     const newLines = lines ?? this.lines;
@@ -58,18 +58,10 @@ export class TextDiagram {
     moveExit: boolean = false
   ): TextDiagram {
     const newWidth = Math.max(this.width, item.width);
-    const newLines: string[] = [];
-    let centeredLines = this.center(newWidth, ' ').lines;
-    for (const line of centeredLines) {
-      newLines.push(line);
-    }
-    for (const line of linesBetween) {
-      newLines.push(TextDiagram._padR(line, newWidth, ' '));
-    }
-    centeredLines = item.center(newWidth, ' ').lines;
-    for (const line of centeredLines) {
-      newLines.push(line);
-    }
+    const item1 = this.expandWidth(newWidth);
+    const item2 = item.expandWidth(newWidth);
+    const paddedLinesBetween = linesBetween.map(x => TextDiagram._padR(x, newWidth, ' '));
+    const newLines = [...item1.lines, ...paddedLinesBetween, ...item2.lines];
     const newEntry = moveEntry ? this.height + linesBetween.length + item.entry : this.entry;
     const newExit = moveExit ? this.height + linesBetween.length + item.exit : this.exit;
     return new TextDiagram(newEntry, newExit, newLines);
@@ -99,6 +91,29 @@ export class TextDiagram {
   }
 
   /**
+   * Create and return a new TextDiagram by expanding this instance's width to the specified new width.
+   */
+  expandWidth(newWidth: number): TextDiagram {
+    if (newWidth < this.width) {
+      throw new Error(`Cannot expandWidth() to a smaller width (changing ${this.width} to ${newWidth})`);
+    }
+    if (newWidth === this.width) {
+      return this.copy();
+    }
+    const [leftGap, rightGap] = TextDiagram._gaps(newWidth, this.width);
+    const line = TextDiagram.parts['line'];
+    const lefts: string[] = [];
+    const rights: string[] = [];
+    for (let i = 0; i < this.height; i++) {
+      const leftChar = this.entry === i ? line : ' ';
+      const rightChar = this.exit === i ? line : ' ';
+      lefts.push(leftChar.repeat(leftGap));
+      rights.push(rightChar.repeat(rightGap));
+    }
+    return this.alter({lines: TextDiagram._encloseLines(this.lines, lefts, rights)});
+  }
+
+  /**
    * Create and return a new TextDiagram by centering the data of this instance within a new, equal or larger width.
    */
   center(width: number, pad: string): TextDiagram {
@@ -107,19 +122,15 @@ export class TextDiagram {
     }
     if (width === this.width) {
       return this.copy();
-    } else {
-      const totalPadding = width - this.width;
-      const leftWidth = Math.trunc(totalPadding / 2);
-      const left: string[] = [];
-      for (let i = 0; i < this.height; i++) {
-        left.push(pad.repeat(leftWidth));
-      }
-      const right: string[] = [];
-      for (let i = 0; i < this.height; i++) {
-        right.push(pad.repeat(totalPadding - leftWidth));
-      }
-      return new TextDiagram(this.entry, this.exit, TextDiagram._encloseLines(this.lines, left, right));
     }
+    const [leftGap, rightGap] = TextDiagram._gaps(width, this.width);
+    const lefts: string[] = [];
+    const rights: string[] = [];
+    for (let i = 0; i < this.height; i++) {
+      lefts.push(pad.repeat(leftGap));
+      rights.push(pad.repeat(rightGap));
+    }
+    return this.alter({lines: TextDiagram._encloseLines(this.lines, lefts, rights)});
   }
 
   /**
@@ -241,6 +252,9 @@ export class TextDiagram {
    */
   static _gaps(outerWidth: number, innerWidth: number, alignment?: 'left' | 'right' | 'center'): [number, number] {
     const diff = outerWidth - innerWidth;
+    if (diff < 0) {
+      console.error(`Larger innerWidth (${innerWidth}) than outerWidth (${outerWidth})`);
+    }
     const align = alignment ?? Options.INTERNAL_ALIGNMENT;
     if (align === 'left') {
       return [0, diff];

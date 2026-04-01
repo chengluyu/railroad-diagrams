@@ -164,7 +164,7 @@ export class AlternatingSequence extends DiagramMultiContainer {
     }
     rightLines.push(line + corner_bot_right);
 
-    diagramTD = diagramTD.alter(firstTD.height + Math.trunc(separator.length / 2), firstTD.height + Math.trunc(separator.length / 2));
+    diagramTD = diagramTD.alter({entry: firstTD.height + Math.trunc(separator.length / 2), exit: firstTD.height + Math.trunc(separator.length / 2)});
     const leftTD = new TextDiagram(firstTD.height + Math.trunc(separator.length / 2), firstTD.height + Math.trunc(separator.length / 2), leftLines);
     const rightTD = new TextDiagram(firstTD.height + Math.trunc(separator.length / 2), firstTD.height + Math.trunc(separator.length / 2), rightLines);
     diagramTD = leftTD.appendRight(diagramTD, '').appendRight(rightTD, '');

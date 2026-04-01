@@ -69,14 +69,11 @@ export class OneOrMore extends FakeSVG {
 
     const itemTD = this.item.toTextDiagram();
     const repeatTD = this.rep.toTextDiagram();
-    const fIRWidth = TextDiagram._maxWidth(itemTD, repeatTD);
-    const expandedRepeatTD = repeatTD.expand(0, fIRWidth - repeatTD.width, 0, 0);
-    const expandedItemTD = itemTD.expand(0, fIRWidth - itemTD.width, 0, 0);
-    const itemAndRepeatTD = expandedItemTD.appendBelow(expandedRepeatTD, []);
+    const itemAndRepeatTD = itemTD.appendBelow(repeatTD, []);
 
     const leftLines: string[] = [];
     leftLines.push(repeat_top_left + line);
-    for (let i = 0; i < expandedItemTD.height - expandedItemTD.entry + expandedRepeatTD.entry - 1; i++) {
+    for (let i = 0; i < itemTD.height - itemTD.entry + repeatTD.entry - 1; i++) {
       leftLines.push(repeat_left + ' ');
     }
     leftLines.push(repeat_bot_left + line);
@@ -85,7 +82,7 @@ export class OneOrMore extends FakeSVG {
 
     const rightLines: string[] = [];
     rightLines.push(line + repeat_top_right);
-    for (let i = 0; i < expandedItemTD.height - expandedItemTD.exit + expandedRepeatTD.exit - 1; i++) {
+    for (let i = 0; i < itemTD.height - itemTD.exit + repeatTD.exit - 1; i++) {
       rightLines.push(' ' + repeat_right);
     }
     rightLines.push(line + repeat_bot_right);
