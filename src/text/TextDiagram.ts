@@ -31,13 +31,6 @@ export class TextDiagram {
   }
 
   /**
-   * Return the lines joined with newlines.
-   */
-  toString(): string {
-    return this.lines.join('\n') + '\n';
-  }
-
-  /**
    * Create and return a new TextDiagram based on this instance, with the specified changes.
    */
   alter(entry: number | null = null, exit: number | null = null, lines: string[] | null = null): TextDiagram {
